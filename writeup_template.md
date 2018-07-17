@@ -61,17 +61,17 @@ The following is a histogram showing a distribution of images with each label in
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale because they are more compact, faster to process and can be trained with a smaller network architecture due to a single channel rather than 3 channels.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
+After that, I normalized the image data because the cross entropy loss function assumes a normal distribution of the data. I also scaled the data to give it zero mean for numerical stability. Normalization also ensures that a particular feature of the images doesn't overshadow other features. For example, in traffic sign images if most pixels represent empty space or white portion, then they may be weighed more than others.
 
-I decided to generate additional data because ... 
+I decided to generate additional data because some of the signs had very few examples. It may not show up in the validation set because the distribution of data for each label is the same as in training, but if the distribution was different or for other data from the web it may give worse results specially if the data is from the minority labels.
 
-To add more data to the the data set, I used the following techniques because ... 
+To add more data to the the data set, I tranlated the image left and right by a few pixels.
 
 Here is an example of an original image and an augmented image:
 

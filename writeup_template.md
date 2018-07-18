@@ -74,36 +74,36 @@ After that, I normalized the image data. In machine learning it is generally a g
 
 I also decided to generate additional data because some of the signs had very few examples. It may not show up in the validation set because the distribution of data for each label is the same as in training, but if the distribution was different or for other data from the web it may give worse results specially if the data is from the minority labels.
 
-To add more data to the the data set, I tranlated the image left and right by a few pixels.
+To add more data to the the data set, I identified all labels with less than 500 examples in the training set, and tranlated those images left and right by a pixel.
 
-Here is an example of an original image and an augmented image:
+Here is an example of an original image and an augmented image shifted left by 1 pixel:
 
 ![alt text][image3]
 
-The difference between the original data set and the augmented data set is the following ... 
+
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
+| Layer         		      |     Description	        			                 		| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Input         		      | 32x32x1 RGB image   							                   | 
+| Convolution 3x3     	 | 1x1 stride, same padding, outputs 32x32x64   	|
+| RELU					             |										                                   		|
+| Max pooling	      	   | 2x2 stride,  outputs 16x16x64 	            			|
+| Convolution 3x3	      | etc.      						                           			|
+| Fully connected		     | etc.        					                         				|
+| Softmax			           	| etc.        					                         				|
+|					                 	|						                                   						|
+|			                 			|						                                   						|
  
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+For training, I used the AdamOptimizer, batch size of 128, 20 epochs, learning rate of 0.001
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 

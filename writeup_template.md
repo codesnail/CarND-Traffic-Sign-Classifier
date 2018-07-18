@@ -113,9 +113,9 @@ For training, I used the AdamOptimizer, batch size of 128, 20 epochs, learning r
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.877
+* validation set accuracy of 0.937
+* test set accuracy of 0.918
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -125,10 +125,15 @@ If an iterative approach was chosen:
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
 If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+* I started off with the Lenet architecture, since it is known to perform well on the MNIST image data set, and our traffic sign dataset also consists of similar type of images as MNIST. Its architecture is also simple enough as far as CNNs go, so that its sufficiently fast to run multiple iterations on a personal laptop with only dual or quadcores, without the use of a GPU. I started off with 10 epochs and increased to 20 epochs. The validation set accuracy remained around 0.89 to 0.9 while the training set accuracy was high between 0.98 to 0.99, indicating overfitting. See learning curve below for early lenet run:
+
+![alt text][image4]
+
+To take care of that, I added a dropout after each activation. I started off with a training dropout rate of 0.50. It improved the validation set accuracy to around 0.91, but the trining set accuracy was lower around 0.85, which raised concern for underfitting. So I reduced the dropout rate to 0.80. This brought the validation set accuracy above the required 0.93, and ultimately the test set accuracy of 0.91, eventhough the training set accuracy was around 0.87. Here is learning curve for the final run:
+
+![alt_text][image 5]
+
+I stopped here since the target was achieved. Further possible improvements include increasing the number of epochs, augmenting the data set further, playing with the filter size, or increasing the breadth or depth of the architecture.
 
 ### Test a Model on New Images
 
@@ -136,8 +141,8 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image6] ![alt text][image7] ![alt text][image8] 
+![alt text][image9] ![alt text][image10]
 
 The first image might be difficult to classify because ...
 
@@ -145,16 +150,16 @@ The first image might be difficult to classify because ...
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
+| Image			              |     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| 30 km/h             		| 30 km/h     				                         					| 
+| No Passing 	        		| No Passing		                           							|
+| Stop   	            		| Stop                                   							|
+| No Entry 	          		| No Entry  				                          	 				|
+| Bumpy Road   			      | Bumpy Road                             							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess all of the traffic signs, which gives an accuracy of 100%. The test set accuracy was 91.8%. The web images were not necessarily chosen to be challenging to classify. The test set has a lot more images with presumably more variety so it is understandable that the accuracy of test set is lower, and it is a better sample of traffic signs than the 5 web images.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 

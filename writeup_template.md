@@ -163,40 +163,59 @@ The model was able to correctly guess all of the traffic signs, which gives an a
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-For all images, the model is more than 99.9% sure of their correct labels.
+For most images, the model is more than 99% sure of their correct labels.
 
-For the first image, 30 km/h sign, the top five soft max probabilities are:
+For the first image, 30 km/h sign, the top five soft max probabilities were:
+
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
 | .99         		       	| 30 km/h   						                           			| 
-| 1.1e-05     				      | 20 km/h										|
-| 8.7e-07				           | 50 km/h										|
-| 4.5e-10      		      	| 80 km/h				 				|
-| 1.5e-10		             | 70 km/h    							|
+| 1.1e-05     				      | 20 km/h					                             					|
+| 8.7e-07				           | 50 km/h							                             			|
+| 4.5e-10      		      	| 80 km/h				 	                              			|
+| 1.5e-10		             | 70 km/h                                							|
 
-The top five soft max probabilties for No Passing sign are:
+The top five soft max probabilties for No Passing sign were:
+
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
 | .78         		       	| No Passing						                           			| 
-| .21         				      | End of No Passing									 	|
+| .21         				      | End of No Passing				                  					 	|
 | 2.3e-04				           | End of No Passing by vehicle over 3.5 metric tons  |
-| 1.4e-04      		      	| Priority Road				 		  		|
+| 1.4e-04      		      	| Priority Road				 		                        		|
 | 8.5e-05		             | No Passing by vehicle over 3.5 metric tons    |
 
-       [  7.80406713e-01,   2.19108447e-01,   2.37248780e-04,
-          1.41120530e-04,   8.51990262e-05],
-       [  9.99996305e-01,   1.87632725e-06,   1.10619726e-06,
-          5.42516887e-07,   1.54377290e-07],
-       [  9.97462869e-01,   1.17454433e-03,   7.34895002e-04,
-          3.00614774e-04,   1.43873316e-04],
-       [  9.99998808e-01,   9.03848331e-07,   8.97919747e-08,
-          6.20185645e-08,   2.70004250e-08]], dtype=float32)
-          
-       [ 9, 41, 42, 12, 10],
-       [14, 17, 13,  4, 39],
-       [17, 14, 12,  9, 41],
-       [22, 29, 26, 28, 20]]))
-For the second image ... 
+Top five soft max probabilities for Stop sign were:
+
+| Probability          	|     Prediction	                          					| 
+|:---------------------:|:---------------------------------------------:| 
+| .9999         		      | Stop				                           			| 
+| 1.87e-06    				      | No Entry			                  					 	|
+| 1.1e-06				           | Yield    |
+| 5.4e-07      		      	| 70 km/h			 		                        		|
+| 1.54e-07		            | Keep Left   |
+
+Top five soft max probabilities for No Entry:
+
+| Probability          	|     Prediction	                          					| 
+|:---------------------:|:---------------------------------------------:| 
+| .997          		      | No Entry				                           			| 
+| 1.1e-03     				      | Stop		                  					 	|
+| 				   7.3e-04        | Priority Road  |
+| 3e-04        		      	| No Passing	 		                        		|
+| 1.4e-04 		            | End of No Passing    |
+
+
+Top five soft max probabilities for Bumpy Road:
+
+| Probability          	|     Prediction	                          					| 
+|:---------------------:|:---------------------------------------------:| 
+| .9999         		      | Bumpy Road  				                           			| 
+| 9e-07   				          | Bicycle Crossing	                  					 	|
+| 8e-08  				           | Traffic Signals  |
+| 6.2e-08      		      	| Children Crossing 		                        		|
+| 2.7e-08 		            | Dangerous curve to the right    |
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?

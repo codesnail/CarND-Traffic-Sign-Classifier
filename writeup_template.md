@@ -125,7 +125,7 @@ My final model results were:
 
 To take care of that, I added a dropout after each activation. I started off with a training dropout rate of 0.50. It improved the validation set accuracy to around 0.91, but the trining set accuracy was lower around 0.85, which raised concern for underfitting. So I reduced the dropout rate to 0.80. This brought the validation set accuracy above the required 0.93, and ultimately the test set accuracy of 0.91, eventhough the training set accuracy was around 0.87. Here is learning curve for the final run:
 
-![alt_text][image 5]
+![alt_text][image5]
 
 I stopped here since the target was achieved. Further possible improvements include increasing the number of epochs, augmenting the data set further, playing with the filter size, or increasing the breadth or depth of the architecture.
 

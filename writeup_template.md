@@ -22,11 +22,13 @@ The goals / steps of this project are the following:
 [image1]: ./training_validation_histogram.png "Visualization"
 [image2]: ./example_grayscale.png "Grayscaling"
 [image3]: ./augmented_image.png "Shift Left"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./learning_curve_X_train_norm_20epochs.png "Early Learning Curve"
+[image5]: ./learning_curve_X_train_norm_20epochs_dropout.png "Final Learning Curve"
+[image6]: ./examples/placeholder.png "Traffic Sign 1"
+[image7]: ./examples/placeholder.png "Traffic Sign 2"
+[image8]: ./examples/placeholder.png "Traffic Sign 3"
+[image9]: ./examples/placeholder.png "Traffic Sign 4"
+[image10]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -117,7 +119,7 @@ My final model results were:
 * validation set accuracy of 0.937
 * test set accuracy of 0.918
 
-* I started off with the Lenet architecture, since it is known to perform well on the MNIST image data set, and our traffic sign dataset also consists of similar type of images as MNIST. Its architecture is also simple enough as far as CNNs go, so that its sufficiently fast to run multiple iterations on a personal laptop with only dual or quadcores, without the use of a GPU. I started off with 10 epochs and increased to 20 epochs. The validation set accuracy remained around 0.89 to 0.9 while the training set accuracy was high between 0.98 to 0.99, indicating overfitting. See learning curve below for early lenet run:
+* I started off with the Lenet architecture, since it is known to perform well on the MNIST image data set, and our traffic sign dataset also consists of similar type of images as MNIST. Its architecture is also simple enough as far as CNNs go, so that its sufficiently fast to run multiple iterations on a personal laptop with only dual or quadcores, without the use of a GPU. I started off with 10 epochs and increased to 20 epochs. The validation set accuracy remained around 0.85 while the training set accuracy was high between 0.98 to 0.99, indicating overfitting. See learning curve below for early lenet run:
 
 ![alt text][image4]
 
@@ -140,9 +142,9 @@ The first image might be difficult to classify because the background maybe diff
 
 The second image might be difficult to classify because again the background differences from the training set. In this particular case, 1/3rd of the image background is white, and bright orange on the bottom right may cause the network to misidentify the boundary.
 
-The third image maybe difficult because the image is somewhat brighter on the edges possibly due to reflection.
+The third image maybe difficult because the image is taken from an angle and appears somewhat skewed, which maybe the case with a real camera or video frame capturing the image.
 
-The fourth image of no-entry sign maybe difficult because the picture is taken from a slight bottom angle and more of the post is visible in the picture.
+The fourth image of no-entry sign maybe difficult because there are writings scratched in and stickers pasted on the sign, which again maybe the case with signs encountered in the real world.
 
 The last image maybe difficult because the image is somewhat faded.
 
@@ -169,31 +171,31 @@ For the first image, 30 km/h sign, the top five soft max probabilities were:
 
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
-| .99         		       	| 30 km/h   						                           			| 
-| 1.1e-05     				      | 20 km/h					                             					|
-| 8.7e-07				           | 50 km/h							                             			|
-| 4.5e-10      		      	| 80 km/h				 	                              			|
-| 1.5e-10		             | 70 km/h                                							|
+| .999        		       	| 30 km/h   						                           			| 
+| 9.9e-05     				      | 20 km/h					                             					|
+| 1.5e-07				           | 50 km/h							                             			|
+| 9.9e-08      		      	| 70 km/h				 	                              			|
+| 2.3e-09 	             | 80 km/h                                							|
 
 The top five soft max probabilties for No Passing sign were:
 
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
-| .78         		       	| No Passing						                           			| 
-| .21         				      | End of No Passing				                  					 	|
-| 2.3e-04				           | End of No Passing by vehicle over 3.5 metric tons  |
-| 1.4e-04      		      	| Priority Road				 		                        		|
-| 8.5e-05		             | No Passing by vehicle over 3.5 metric tons    |
+| .998        		       	| No Passing						                           			| 
+| 7.4e-04     				      | End of No Passing				                  					 	|
+| 5.8e-04				           | Vechiles over 3.5 metric tons prohibited      |
+| 2.1e-04      		      	| Priority Road				 		                        		|
+| 2.7e-05		             | No Passing for vehicle over 3.5 metric tons   |
 
 Top five soft max probabilities for Stop sign were:
 
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
-| .9999         		      | Stop				                           			| 
-| 1.87e-06    				      | No Entry			                  					 	|
-| 1.1e-06				           | Yield    |
-| 5.4e-07      		      	| 70 km/h			 		                        		|
-| 1.54e-07		            | Keep Left   |
+| .996          		      | Stop				                           			| 
+| 7.6e-04    				       | Keep right			                  					 	|
+| 4.8e-04				           | 50 km/h    |
+| 3.8e-04      		      	| Yield			 		                        		|
+| 2.4e-04		             | Road Work   |
 
 Top five soft max probabilities for No Entry:
 
@@ -201,9 +203,9 @@ Top five soft max probabilities for No Entry:
 |:---------------------:|:---------------------------------------------:| 
 | .997          		      | No Entry				                           			| 
 | 1.1e-03     				      | Stop		                  					 	|
-| 				   7.3e-04        | Priority Road  |
-| 3e-04        		      	| No Passing	 		                        		|
-| 1.4e-04 		            | End of No Passing    |
+| 7.3e-04               | Turn Left Ahead  |
+| 3e-04        		      	| End of all speed and passing limits         		|
+| 1.4e-04 		            | Turn right ahead    |
 
 
 Top five soft max probabilities for Bumpy Road:
@@ -211,10 +213,10 @@ Top five soft max probabilities for Bumpy Road:
 | Probability          	|     Prediction	                          					| 
 |:---------------------:|:---------------------------------------------:| 
 | .9999         		      | Bumpy Road  				                           			| 
-| 9e-07   				          | Bicycle Crossing	                  					 	|
-| 8e-08  				           | Traffic Signals  |
-| 6.2e-08      		      	| Children Crossing 		                        		|
-| 2.7e-08 		            | Dangerous curve to the right    |
+| 2.7e-06   				        | Bicycle Crossing	                  					 	|
+| 1.9e-08				           | Road Work  |
+| 2.5e-09      		      	| Turn Leaft Ahead 		                        		|
+| 1.5e-09 		            | Dangerous curve to the right    |
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)

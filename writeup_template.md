@@ -47,11 +47,11 @@ You're reading it! and here is a link to my [project code](./Traffic_Sign_Classi
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is 34799
+* The size of the validation set is 4410
+* The size of test set is 12630
+* The shape of a traffic sign image is 32x32
+* The number of unique classes/labels in the data set is 43
 
 #### 2. Include an exploratory visualization of the dataset.
 
@@ -104,7 +104,6 @@ My final model consisted of the following layers:
 | RELU                  |                                               |
 | Fully connected       | output 43                                     |
 |					                 	|						                                   						|
-|			                 			|						                                   						|
  
 
 

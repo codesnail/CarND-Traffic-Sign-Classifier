@@ -24,11 +24,11 @@ The goals / steps of this project are the following:
 [image3]: ./augmented_image.png "Shift Left"
 [image4]: ./learning_curve_X_train_norm_20epochs.png "Early Learning Curve"
 [image5]: ./learning_curve_X_train_norm_20epochs_dropout.png "Final Learning Curve"
-[image6]: ./examples/placeholder.png "Traffic Sign 1"
-[image7]: ./examples/placeholder.png "Traffic Sign 2"
-[image8]: ./examples/placeholder.png "Traffic Sign 3"
-[image9]: ./examples/placeholder.png "Traffic Sign 4"
-[image10]: ./examples/placeholder.png "Traffic Sign 5"
+[image6]: ./1.jpg "Traffic Sign 1"
+[image7]: ./9.jpg "Traffic Sign 2"
+[image8]: ./14.jpg "Traffic Sign 3"
+[image9]: ./17.jpg "Traffic Sign 4"
+[image10]: ./22.jpg "Traffic Sign 5"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -135,8 +135,11 @@ I stopped here since the target was achieved. Further possible improvements incl
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image6] ![alt text][image7] ![alt text][image8] 
-![alt text][image9] ![alt text][image10]
+![alt text][image6] 
+![alt text][image7] 
+![alt text][image8] 
+![alt text][image9]
+![alt text][image10]
 
 The first image might be difficult to classify because the background maybe different from the training set. For this one particular, the (presumably) dark red garage door in the bottom right kind of meshes with the red cicle of the sign. However the network seem to identify this with pretty high accuracy.
 

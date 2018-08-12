@@ -117,14 +117,6 @@ My final model results were:
 * validation set accuracy of 0.937
 * test set accuracy of 0.918
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
 * I started off with the Lenet architecture, since it is known to perform well on the MNIST image data set, and our traffic sign dataset also consists of similar type of images as MNIST. Its architecture is also simple enough as far as CNNs go, so that its sufficiently fast to run multiple iterations on a personal laptop with only dual or quadcores, without the use of a GPU. I started off with 10 epochs and increased to 20 epochs. The validation set accuracy remained around 0.89 to 0.9 while the training set accuracy was high between 0.98 to 0.99, indicating overfitting. See learning curve below for early lenet run:
 
 ![alt text][image4]
@@ -144,7 +136,15 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image6] ![alt text][image7] ![alt text][image8] 
 ![alt text][image9] ![alt text][image10]
 
-The first image might be difficult to classify because ...
+The first image might be difficult to classify because the background maybe different from the training set. For this one particular, the (presumably) dark red garage door in the bottom right kind of meshes with the red cicle of the sign. However the network seem to identify this with pretty high accuracy.
+
+The second image might be difficult to classify because again the background differences from the training set. In this particular case, 1/3rd of the image background is white, and bright orange on the bottom right may cause the network to misidentify the boundary.
+
+The third image maybe difficult because the image is somewhat brighter on the edges possibly due to reflection.
+
+The fourth image of no-entry sign maybe difficult because the picture is taken from a slight bottom angle and more of the post is visible in the picture.
+
+The last image maybe difficult because the image is somewhat faded.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 

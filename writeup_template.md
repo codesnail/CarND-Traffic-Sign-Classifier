@@ -1,9 +1,9 @@
 # **Traffic Sign Recognition** 
 
-## Writeup
----
+by Yaser Ahmed, Georgia Institue of Technology (2018)
 
-**Build a Traffic Sign Recognition Project**
+## Abstract
+The goal of this project is to identify traffic signs by using deep learning.
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)

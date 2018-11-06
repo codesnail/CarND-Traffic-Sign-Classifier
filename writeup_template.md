@@ -3,7 +3,7 @@
 by Yaser Ahmed, Georgia Institue of Technology (2018)
 
 ## Abstract
-The goal of this project is to use deep learning to classify german traffic signs, with an accuracy of 93% or better. In particular, I implement and train the LeNet architecture using the tensorflow framework. The original LeNet architecture is modified to take 32x32 grayscale images, and output 43 different traffic sign classes. I also demonstrate data augmentation techniques in the domain of image recognition, which helps improve the accuracy of the model. I also retrieve the final softmax probabilities of the test examples, which provide additional insight into what the model has learned.
+The goal of this project is to use deep learning to classify german traffic signs, with validation set accuracy of 93% or better. In particular, I implement and train the LeNet architecture using the tensorflow framework. The original LeNet architecture is modified to take 32x32 grayscale images, and output 43 different traffic sign classes. I also demonstrate data augmentation techniques in the domain of image recognition, which helps improve the accuracy of the model. I also retrieve the final softmax probabilities of the test examples, which provide additional insight into what the model has learned.
 
 ### Pipeline
 The project implements the following pipeline:

@@ -54,9 +54,7 @@ After that, I normalized the image data. In machine learning it is generally a g
 1. It brings different samples to the same scale to undo effects of unimportant features, e.g., different brightness levels.
 1. It ensures numerical stability.
 
-I also decided to generate additional data because some of the signs had very few examples. It may not have a significant impact on the validation set because the distribution of traffic sign samples in the validation set is the same as in training set, but if the distribution was different or for other data from the web it may give worse results, specially if the data is from the minority labels.
-
-To add more data to the the data set, I identified all labels with less than 500 examples in the training set, and shifted those images left and right by a single pixel.
+I also decided to augment the data because some of the signs had very few examples. To add more data to the the data set, I identified all labels with less than 500 examples in the training set, and shifted those images left and right by a single pixel.
 
 Here is an example of an original image and an augmented image shifted left by 1 pixel:
 
